@@ -1,27 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div class="box">
+    <Header></Header> 
+    <router-view></router-view>
+  </div>
 </template>
 
-<script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from './components/HelloWorld.vue';
-
-@Options({
-  components: {
-    HelloWorld,
+<script>
+import { defineComponent, onMounted, shallowRef } from '@vue/runtime-core';
+import Header from './components/Header.vue'
+export default defineComponent({
+  components:{
+    Header,
   },
-})
-export default class App extends Vue {}
+  setup(){
+    return{
+    }
+  }
+  })
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+.box {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column nowrap;
 }
 </style>

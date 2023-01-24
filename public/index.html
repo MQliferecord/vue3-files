@@ -14,4 +14,19 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+  <script>
+    ~function anonymous(window) {
+      let computedREM = function computedREM() {
+        let winW = document.documentElement.clientWidth,
+          desW = 375;
+        if (winW >= 375) {
+          document.documentElement.style.fontSize = '100px';
+          return;
+        }
+        document.documentElement.style.fontSize = winW / desW * 100 + 'px';
+      };
+      computedREM();
+      window.addEventListener('resize', computedREM);
+    }(window);
+  </script>
 </html>

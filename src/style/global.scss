@@ -1,0 +1,27 @@
+body{
+    --theme-white-active-color:#000000;
+    --theme-white-background-color:#ffffff;
+    --theme-white-non-active-color:#ccc;
+    /**
+    --theme-black-active-color:#ffffff;
+    --theme-black-background-color:#000000;
+    --theme-black-non-active-color:#c0c0c0;
+    */
+    font-size: 0.12rem;
+    color:var(--theme-white-active-color);
+    background-color: var(--theme-white-background-color);
+    a{
+        color:var(--theme-white-non-active-color);
+        &.active{
+            color:var(--theme-white-active-color)
+        }
+    }
+    --van-nav-bar-height:0.55rem;
+    --van-font-size-lg:0.20rem;
+    --van-text-color:#696969;
+    --van-primary-color:#000000;
+    --van-dropdown-menu-title-text-color:var(--van-text-color);
+    --van-dropdown-menu-title-active-text-color:var(--van-primary-color);
+    --van-dropdown-menu-option-active-color:var(--van-primary-color);
+    --van-nav-bar-title-font-size:var(--van-font-size-lg);
+}
