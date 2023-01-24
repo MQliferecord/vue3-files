@@ -1,24 +1,4 @@
-# vue3-files
+使用vue3写的demo,主要是为了训练使用vue3+组件库实现一些小功能
 
-## Project setup
-```
-npm install
-```
+npm run serve 运行，后端文件在[FilesUpload](https://github.com/MQliferecord/FilesUpload)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
