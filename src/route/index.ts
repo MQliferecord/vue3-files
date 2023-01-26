@@ -1,12 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import multiImg from '../views/Files/multiImg.vue'
-import singleImg from '../views/Files/singleImg.vue'
-import video from '../views/Files/video.vue'
 import index from '../views/index.vue'
-import filesupload from '../views/filesupload.vue'
-import todolist from '../views/todolist.vue'
-import theme from '../views/theme.vue'
-import images from '../views/images.vue'
+
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -17,22 +11,22 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/files',
         name: 'files',
-        component: filesupload,
+        component: ()=>import("@/views/filesupload.vue"),
         children: [
             {
                 path: '/files/singleImg',
                 name: 'singleImg',
-                component: singleImg
+                component: ()=>import("@/views/Files/singleImg.vue")
             },
             {
                 path: '/files/multiImg',
                 name: 'multiImg',
-                component: multiImg
+                component: ()=>import("../views/Files/multiImg.vue")
             },
             {
                 path: '/files/video',
                 name: 'video',
-                component: video
+                component:()=>import("../views/Files/video.vue")
             },
 
         ]
@@ -40,17 +34,17 @@ const routes: Array<RouteRecordRaw> = [
     {
         path:'/todo',
         name:'todolist',
-        component:todolist,
+        component:()=>import("../views/todolist.vue"),
     },
     {
         path:'/theme',
         name:'theme',
-        component:theme
+        component:()=>import("../views/theme.vue")
     },
     {
         path:'/images',
         name:'images',
-        component:images
+        component:()=>import("../views/images.vue")
     }
 ]
 const router = createRouter({
