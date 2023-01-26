@@ -11,6 +11,7 @@ export function getSize(data:any) {
 export function Files(url:string,formData:any){
     return axios.post(`/upload/${url}`,formData)
 }
-export function getImg(){
-    return axios.post(`/upload/img`)
+
+export function getImg<T>(page:number,size:number){
+    return axios.post<T,T>(`/upload/img/${page}/${size}`)
 }

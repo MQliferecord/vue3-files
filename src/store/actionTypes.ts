@@ -1,0 +1,3 @@
+export const SEARCHBY_PAGESIZE = 'SEARCHBY_PAGESIZE'
+export const SET_LOADING = 'SET_LOADING'
+export const GET_IMGS = 'GET_IMGS'
