@@ -6,7 +6,6 @@
         name="newtodo"
         label="TODO"
         center
-        clearable
         placeholder="请输入待办事项"
       >
         <template #button>
@@ -39,6 +38,8 @@
 
 <script>
 import { ref } from "vue";
+import getLocalTime from '@/hooks/getLocalTime'
+import setLocalTime from '@/hooks/setLocalTime'
 export default {
   name: "todo",
   setup() {
@@ -49,7 +50,7 @@ export default {
         content: "",
       },
     ];
-    const todosData = JSON.parse(localStorage.getItem("todos")) || defaultData;
+    const todosData = getLocalTime("todos") || defaultData;
     const todos = ref(todosData);
     function addTodo() {
       console.log(newtodo.value);
@@ -63,8 +64,7 @@ export default {
       saveData();
     }
     function saveData() {
-      const storageData = JSON.stringify(todos.value);
-      localStorage.setItem("todos", storageData);
+      setLocalTime("todos", todos.value , 7)
     }
     function removeTodo(todo, index) {
       todo.done = !todo.done;

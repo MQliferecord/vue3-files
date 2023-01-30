@@ -26,6 +26,7 @@ import {
   watch,
 } from "@vue/runtime-core";
 import { Files, getSize } from "../../api/fileAPI";
+//import hashWorker from '@/hooks/useHash' 
 
 export default defineComponent({
   name: "video",
@@ -37,15 +38,25 @@ export default defineComponent({
     onMounted(() => {
       video.value;
     });
+/** 
+    const calculateHash = (fileList)=>{
+      return new Promise(resolve=>{
+        const worker = new Worker(hashWorker)
+        worker.postMessage({fileList})
+        worker.onmessage = e =>{
+          const {hash} = e.data
+          if(hash){
+            resolve(hash)
+          }
+        }
+      })
+    }
+*/
     const videoUpload = async () => {
+
       console.log(video.value.files[0]);
       const file = video.value.files[0];
-      const fileData = {
-        fileName: file.name,
-      };
-      const getSizeAns = await getSize(fileData);
-      const count = getSizeAns.data;
-      console.log(count);
+
       const sectionLength = 100;
       let fileList = [];
       let itemSize = Math.ceil(file.size / sectionLength);
@@ -55,9 +66,19 @@ export default defineComponent({
           file: file.slice(current, current + itemSize),
         });
       }
+      debugger
+      const hash = await calculateHash(fileList)
+      const fileData = {
+        fileName: file.name,
+        //hash:hash
+      };
+      const getSizeAns = await getSize(fileData);
+      const count = getSizeAns.data;
+      console.log(count);
       fileList = count === 0 ? fileList : fileList.slice(count, sectionLength);
       for (const [index, item] of fileList.entries()) {
         let formData = new FormData();
+        //formData.append("hash",hash)
         formData.append("file", item.file);
         formData.append("filename", file.name);
         formData.append("total", sectionLength);

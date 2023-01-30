@@ -6,6 +6,7 @@ import Vant from 'vant';
 import 'vant/lib/index.css';
 import './style/reset.css'
 import './style/global.scss'
+import 'animate.css'
 import lazyImg from '@/hooks/useDirective'
 
 
