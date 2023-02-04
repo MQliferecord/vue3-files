@@ -2,6 +2,7 @@
 <template>
   <div class="files-upload">
     <div class="h-singleimg">
+        <!--使用active-class显示点击高亮，to进行页面路由跳转-->
         <router-link active-class="active" :to="{name:'singleImg'}">
             单图片上传 
         </router-link>
@@ -17,6 +18,7 @@
         </router-link>
     </div>
   </div>
+  <!--放置要跳转的页面内容-->
   <router-view></router-view>
 </template>
 
