@@ -47,6 +47,16 @@ export default {
           "theme-white-non-active-color": isLight ? graywhite : grayblack,
         };
       };
+      /**
+      * 首先这里只设定了“白昼”和“黑夜”两种模式
+      * 1. 判断当前显示在页面的模式的value是否等于白昼模式
+      *   （1）这里value必须是响应式数据;
+      *   （2）使用onMounted去监视相关的value。
+      *   （3）多种模式可以使用map将value存为key,对应样式存为val
+      * 2. 根据isLight去调整css特定的api的值
+      * 3. 然后调用body.style.setProperty去覆盖global.css中的参数
+      * 4. 为了更好的对样式进行统一管理，在style/global.css下写好要覆盖的数据
+      */
       const themeMap = getThemeMap(defaultOPT[0].value !== value.value);
       Object.keys(themeMap).forEach((key) => {
         body.style.setProperty(`--${key}`, themeMap[key]);
